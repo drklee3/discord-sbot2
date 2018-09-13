@@ -14,3 +14,7 @@ steps:
     sudo apt-get install libpq-dev -y
     cargo build
   displayName: 'Build sushii'
+- task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: 'sushii-bot/target/release/sushii'
+      artifactName: 'sushii-$(Build.BuildNumber)-$(Agent.OS)'
