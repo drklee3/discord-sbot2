@@ -18,6 +18,13 @@ steps:
 
 - script: |
     source $HOME/.cargo/env
+    echo 'Agent ID $(Agent.Id)'
+    echo 'Agent Name $(Agent.Name)'
+    echo 'Agent MachineName $(Agent.MachineName)'
+    echo 'Agent OS $(Agent.OS)'
+
+    echo 'Build ID $(Build.BuildId)'
+    echo 'Build Number $(Build.BuildNumber)'
     cargo build --release
   displayName: 'Build sushii'
 
