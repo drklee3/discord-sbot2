@@ -12,7 +12,7 @@ steps:
     sh rustup-init.sh -y
     source $HOME/.cargo/env
     sudo apt-get install libpq-dev -y
-    cargo build
+    cargo build --release
   displayName: 'Build sushii'
 - task: PublishBuildArtifacts@1
   inputs:
