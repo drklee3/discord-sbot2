@@ -15,6 +15,6 @@ steps:
     cargo build
   displayName: 'Build sushii'
 - task: PublishBuildArtifacts@1
-    inputs:
-      pathtoPublish: 'sushii-bot/target/release/sushii'
-      artifactName: 'sushii-$(Build.BuildNumber)-$(Agent.OS)'
+  inputs:
+    pathtoPublish: 'sushii-bot/target/release/sushii'
+    artifactName: 'sushii-$(Build.BuildNumber)-$(Agent.OS)'
