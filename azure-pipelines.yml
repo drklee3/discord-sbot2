@@ -26,6 +26,7 @@ steps:
     echo 'Build ID $(Build.BuildId)'
     echo 'Build Number $(Build.BuildNumber)'
 
+    export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64
     echo 'LD_LIBRARY_PATH $LD_LIBRARY_PATH'
 
     cargo build --release
