@@ -24,15 +24,11 @@ steps:
 
     echo 'Build ID $(Build.BuildId)'
     echo 'Build Number $(Build.BuildNumber)'
-
-    export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64
-    export OPENSSL_STATIC=1
-    printenv LD_LIBRARY_PATH
   displayName: 'Print Info'
 
 - script: |
     source $HOME/.cargo/env
-    cargo build --release --verbose
+    cargo build --release
   displayName: 'Build sushii'
 
 - task: PublishBuildArtifacts@1
