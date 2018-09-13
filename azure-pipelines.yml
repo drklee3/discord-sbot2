@@ -11,9 +11,16 @@ steps:
     curl -o rustup-init.sh https://sh.rustup.rs -sSf
     sh rustup-init.sh -y
     source $HOME/.cargo/env
+  displayName: 'Install Rust'
+
+- script: |
     sudo apt-get install libpq-dev -y
+  displayName: 'Install Dependencies'
+
+- script: |
     cargo build --release
   displayName: 'Build sushii'
+
 - task: PublishBuildArtifacts@1
   inputs:
     pathtoPublish: 'target/release/sushii'
