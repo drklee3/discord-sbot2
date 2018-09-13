@@ -13,7 +13,7 @@ steps:
   displayName: 'Install Rust'
 
 - script: |
-    sudo apt-get install pkg-config libssl-dev libpq-dev -y
+    apt-get install pkg-config libssl-dev libpq-dev -y
   displayName: 'Install Dependencies'
 
 - script: |
