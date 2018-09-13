@@ -259,7 +259,7 @@ command!(stats(ctx, msg) {
         m.embed(|e| e
             .color(0x3498db)
             .title(&format!(
-                "sushii v{} - Build {} ({} ID {})",
+                "sushii v{} - Build {} ({} #{})",
                 bot_version, build_number.unwrap_or("N/A"),
                 agent_name.unwrap_or("N/A"), agent_id.unwrap_or("N/A")
             ))
