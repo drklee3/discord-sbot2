@@ -13,7 +13,7 @@ steps:
   displayName: 'Install Rust'
 
 - script: |
-    sudo apt-get install libpq-dev -y
+    sudo apt-get install libssl-dev=1.0.2g-1ubuntu4.13 libpq-dev -y
   displayName: 'Install Dependencies'
 
 - script: |
@@ -27,7 +27,6 @@ steps:
 
     export LD_LIBRARY_PATH=/usr/local/lib:/usr/local/lib64
     export OPENSSL_STATIC=1
-    echo 'LD_LIBRARY_PATH $LD_LIBRARY_PATH'
     printenv LD_LIBRARY_PATH
   displayName: 'Print Info'
 
