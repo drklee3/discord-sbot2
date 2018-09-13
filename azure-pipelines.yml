@@ -13,7 +13,7 @@ steps:
   displayName: 'Install Rust'
 
 - script: |
-    sudo apt-get install pkg-config libssl-dev libpq-dev -y
+    sudo apt-get install libpq-dev -y
   displayName: 'Install Dependencies'
 
 - script: |
@@ -25,6 +25,9 @@ steps:
 
     echo 'Build ID $(Build.BuildId)'
     echo 'Build Number $(Build.BuildNumber)'
+
+    echo 'LD_LIBRARY_PATH $(LD_LIBRARY_PATH)'
+
     cargo build --release
   displayName: 'Build sushii'
 
