@@ -3,13 +3,11 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-parameters:
-  pool:
-    vmImage: 'Ubuntu 16.04'
 
 jobs:
 - job: build
-  pool: ${{ parameters.pool }}
+  pool:
+    vmImage: 'Ubuntu 16.04'
   displayName: 'Build sushii'
   steps:
   - script: |
@@ -54,7 +52,8 @@ jobs:
   displayName: 'Print secure path'
 
 - job: predeploy
-  pool: ${{ parameters.pool }}
+  pool:
+    vmImage: 'Ubuntu 16.04'
   steps:
   - task: InstallSSHKey@0
     dependsOn:
@@ -66,7 +65,8 @@ jobs:
       sshKeySecureFile: $env:DOWNLOADSECUREFILE_SECUREFILEPATH
 
 - job: deploy
-  pool: ${{ parameters.pool }}
+  pool:
+    vmImage: 'Ubuntu 16.04'
   dependsOn: predeploy
   steps:
   - task: CopyFilesOverSSH@0
