@@ -34,22 +34,22 @@ jobs:
       cargo build --release
     displayName: 'Build sushii'
 
-- task: PublishBuildArtifacts@1
-  condition: succeeded() # , eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  inputs:
-    pathtoPublish: 'target/release/sushii'
-    artifactName: 'sushii-$(Build.BuildNumber)-$(Agent.OS)'
+  - task: PublishBuildArtifacts@1
+    condition: succeeded() # , eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    inputs:
+      pathtoPublish: 'target/release/sushii'
+      artifactName: 'sushii-$(Build.BuildNumber)-$(Agent.OS)'
 
-- task: DownloadSecureFile@1
-  condition: succeeded() # , eq(variables['Build.SourceBranch'], 'refs/heads/master'))
-  inputs:
-    secureFile: key
+  - task: DownloadSecureFile@1
+    condition: succeeded() # , eq(variables['Build.SourceBranch'], 'refs/heads/master'))
+    inputs:
+      secureFile: key
 
-- script: |
-    echo $env:DOWNLOADSECUREFILE_SECUREFILEPATH
-    echo $(Agent.TempDirectory)
-    ls $(Agent.TempDirectory)/
-  displayName: 'Print secure path'
+  - script: |
+      echo $env:DOWNLOADSECUREFILE_SECUREFILEPATH
+      echo $(Agent.TempDirectory)
+      ls $(Agent.TempDirectory)/
+    displayName: 'Print secure path'
 
 - job: predeploy
   pool:
