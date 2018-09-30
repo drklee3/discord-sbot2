@@ -40,7 +40,7 @@ steps:
 - task: DownloadSecureFile@1
   condition: succeeded() # , eq(variables['Build.SourceBranch'], 'refs/heads/master'))
   inputs:
-    secureFile: key
+    secureFile: ssdn
 
 - script: |
     echo $env:DOWNLOADSECUREFILE_SECUREFILEPATH
