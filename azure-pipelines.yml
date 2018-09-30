@@ -6,6 +6,7 @@
 pool:
   vmImage: 'Ubuntu 16.04'
 
+jobs:
 - job: build
   displayName: 'Build sushii'
   steps:
